@@ -13,8 +13,7 @@ public class TypyCwiczenController : Controller
     {
         _context = context;
     }
-
-    // GET: TypyCwiczen
+    
     public async Task<IActionResult> Index()
     {
         return View(await _context.TypyCwiczen.ToListAsync());

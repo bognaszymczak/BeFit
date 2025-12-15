@@ -18,16 +18,14 @@ namespace BeFit.Web.Controllers
         {
             _context = context;
         }
-
-        // GET: SesjeTreningowe
+        
         public async Task<IActionResult> Index()
         {
               return _context.SesjeTreningowe != null ? 
                           View(await _context.SesjeTreningowe.ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.SesjeTreningowe'  is null.");
         }
-
-        // GET: SesjeTreningowe/Details/5
+      
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.SesjeTreningowe == null)
@@ -44,16 +42,12 @@ namespace BeFit.Web.Controllers
 
             return View(sesjaTreningowa);
         }
-
-        // GET: SesjeTreningowe/Create
+        
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: SesjeTreningowe/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nazwa,CzasRozpoczecia,CzasZakonczenia,UzytkownikId")] SesjaTreningowa sesjaTreningowa)
@@ -66,8 +60,7 @@ namespace BeFit.Web.Controllers
             }
             return View(sesjaTreningowa);
         }
-
-        // GET: SesjeTreningowe/Edit/5
+        
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.SesjeTreningowe == null)
@@ -82,10 +75,7 @@ namespace BeFit.Web.Controllers
             }
             return View(sesjaTreningowa);
         }
-
-        // POST: SesjeTreningowe/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nazwa,CzasRozpoczecia,CzasZakonczenia,UzytkownikId")] SesjaTreningowa sesjaTreningowa)
@@ -117,8 +107,7 @@ namespace BeFit.Web.Controllers
             }
             return View(sesjaTreningowa);
         }
-
-        // GET: SesjeTreningowe/Delete/5
+        
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.SesjeTreningowe == null)
@@ -135,8 +124,7 @@ namespace BeFit.Web.Controllers
 
             return View(sesjaTreningowa);
         }
-
-        // POST: SesjeTreningowe/Delete/5
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

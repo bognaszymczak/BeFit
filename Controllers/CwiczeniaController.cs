@@ -19,14 +19,12 @@ namespace BeFit.Web.Controllers
             _context = context;
         }
 
-        // GET: Cwiczenia
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Cwiczenia.Include(c => c.SesjaTreningowa).Include(c => c.TypCwiczenia);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Cwiczenia/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Cwiczenia == null)
@@ -45,18 +43,14 @@ namespace BeFit.Web.Controllers
 
             return View(cwiczenie);
         }
-
-        // GET: Cwiczenia/Create
+      
         public IActionResult Create()
         {
             ViewData["SesjaTreningowaId"] = new SelectList(_context.SesjeTreningowe, "Id", "Nazwa");
             ViewData["TypCwiczeniaId"] = new SelectList(_context.TypyCwiczen, "Id", "Nazwa");
             return View();
         }
-
-        // POST: Cwiczenia/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,LiczbaSerii,Obciazenie,TypCwiczeniaId,SesjaTreningowaId")] Cwiczenie cwiczenie)
@@ -71,8 +65,7 @@ namespace BeFit.Web.Controllers
             ViewData["TypCwiczeniaId"] = new SelectList(_context.TypyCwiczen, "Id", "Nazwa", cwiczenie.TypCwiczeniaId);
             return View(cwiczenie);
         }
-
-        // GET: Cwiczenia/Edit/5
+        
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Cwiczenia == null)
@@ -89,10 +82,7 @@ namespace BeFit.Web.Controllers
             ViewData["TypCwiczeniaId"] = new SelectList(_context.TypyCwiczen, "Id", "Nazwa", cwiczenie.TypCwiczeniaId);
             return View(cwiczenie);
         }
-
-        // POST: Cwiczenia/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,LiczbaSerii,Obciazenie,TypCwiczeniaId,SesjaTreningowaId")] Cwiczenie cwiczenie)
@@ -126,8 +116,7 @@ namespace BeFit.Web.Controllers
             ViewData["TypCwiczeniaId"] = new SelectList(_context.TypyCwiczen, "Id", "Nazwa", cwiczenie.TypCwiczeniaId);
             return View(cwiczenie);
         }
-
-        // GET: Cwiczenia/Delete/5
+        
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Cwiczenia == null)
@@ -146,8 +135,7 @@ namespace BeFit.Web.Controllers
 
             return View(cwiczenie);
         }
-
-        // POST: Cwiczenia/Delete/5
+       
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

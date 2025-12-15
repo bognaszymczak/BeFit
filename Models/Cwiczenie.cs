@@ -13,7 +13,7 @@ public class Cwiczenie
 
   [Display(Name = "Weight (kg)")]
   [Required, Column(TypeName = "decimal(5, 2)")]
-  [Range(0.1, 1000, ErrorMessage = "Weight must be a positive value.")]//Walidator
+  [Range(0.1, 1000, ErrorMessage = "Weight must be a positive value.")]
   public decimal Obciazenie { get; set; }
 
   public int TypCwiczeniaId { get; set; }

@@ -1,4 +1,4 @@
-namespace BeFit.Web.Models; // Upewniamy się, że jest w dobrej "szufladce"
+namespace BeFit.Web.Models;
 
 public class ErrorViewModel
 {
