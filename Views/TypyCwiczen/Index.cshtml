@@ -1,0 +1,31 @@
+@model IEnumerable<BeFit.Web.Models.TypCwiczenia>
+
+@{
+    ViewData["Title"] = "Typy Ćwiczeń";
+}
+
+<h1>Typy Ćwiczeń</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nowy</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                Edytuj | Usuń
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

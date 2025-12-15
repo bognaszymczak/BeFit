@@ -1,0 +1,53 @@
+@model IEnumerable<BeFit.Web.Models.SesjaTreningowa>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazwa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CzasRozpoczecia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CzasZakonczenia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UzytkownikId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CzasRozpoczecia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CzasZakonczenia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UzytkownikId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

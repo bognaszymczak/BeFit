@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - BeFit.Web</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/BeFit.Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BeFit.Web.styles.css" asp-append-sversion="true" />
 </head>
 <body>
     <header>
@@ -22,8 +22,19 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="TypyCwiczen" asp-action="Index">Typy Ćwiczeń</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Cwiczenia" asp-action="Index">Ćwiczenia</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="SesjeTreningowe" asp-action="Index">Sesje</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
